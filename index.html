@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sign Site Survey — V1.4</title>
-  <meta name="description" content="Quarry Tex — Sign Site Survey (V1.4)" />
+  <title>Sign Site Survey — V1.5</title>
+  <meta name="description" content="Quarry Tex — Sign Site Survey (V1.5)" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -12,7 +12,7 @@
 <header class="topbar">
   <div>
     <div class="brand">Sign Site Survey</div>
-    <div class="sub">V1.4 — Field Survey</div>
+    <div class="sub">V1.5 — Field Survey</div>
   </div>
   <div class="status" id="saveStatus">Not saved</div>
 </header>
@@ -24,22 +24,19 @@
     <h2>Site Information</h2>
     <div class="grid">
       <div class="field">
-        <label for="siteName">Site / Business Name *</label>
+        <label>Site / Business Name *</label>
         <input id="siteName" type="text" required />
       </div>
-
       <div class="field">
-        <label for="contactName">On-site Contact Name *</label>
+        <label>On-site Contact Name *</label>
         <input id="contactName" type="text" required />
       </div>
-
       <div class="field">
-        <label for="contactPhone">Contact Phone</label>
+        <label>Contact Phone</label>
         <input id="contactPhone" type="tel" inputmode="tel" />
       </div>
-
       <div class="field">
-        <label for="surveyor">Surveyor *</label>
+        <label>Surveyor *</label>
         <input id="surveyor" type="text" required />
       </div>
     </div>
@@ -50,22 +47,19 @@
     <h2>Address</h2>
     <div class="grid">
       <div class="field">
-        <label for="street">Street *</label>
+        <label>Street *</label>
         <input id="street" type="text" required />
       </div>
-
       <div class="field">
-        <label for="city">City *</label>
+        <label>City *</label>
         <input id="city" type="text" required />
       </div>
-
       <div class="field">
-        <label for="state">State *</label>
+        <label>State *</label>
         <input id="state" type="text" maxlength="2" placeholder="NJ" required />
       </div>
-
       <div class="field">
-        <label for="zip">ZIP *</label>
+        <label>ZIP *</label>
         <input id="zip" type="text" inputmode="numeric" maxlength="10" required />
       </div>
     </div>
@@ -76,7 +70,7 @@
     <h2>Site Conditions</h2>
     <div class="grid">
       <div class="field">
-        <label for="season">Season Conditions *</label>
+        <label>Season Conditions *</label>
         <select id="season" required>
           <option value="">Select</option>
           <option>Normal / Dry</option>
@@ -86,9 +80,8 @@
           <option>Extreme Heat</option>
         </select>
       </div>
-
       <div class="field">
-        <label for="permitStatus">Permit Status *</label>
+        <label>Permit Status *</label>
         <select id="permitStatus" required>
           <option value="">Select</option>
           <option value="Unknown">Unknown</option>
@@ -102,18 +95,16 @@
       <h3>Permit Details (if required)</h3>
       <div class="grid">
         <div class="field">
-          <label for="municipality">Municipality</label>
-          <input id="municipality" type="text" placeholder="e.g., Green Brook Township" />
+          <label>Municipality</label>
+          <input id="municipality" type="text" />
         </div>
-
         <div class="field">
-          <label for="permitNumber">Permit # (optional)</label>
+          <label>Permit # (optional)</label>
           <input id="permitNumber" type="text" />
         </div>
-
-        <div class="field" style="grid-column: 1 / -1;">
-          <label for="permitNotes">Permit Notes</label>
-          <input id="permitNotes" type="text" placeholder="Any known requirements, approvals, or risks" />
+        <div class="field" style="grid-column:1/-1">
+          <label>Permit Notes</label>
+          <input id="permitNotes" type="text" />
         </div>
       </div>
     </div>
@@ -123,18 +114,9 @@
   <section class="card">
     <h2>Zones</h2>
     <div class="grid">
-      <div class="field">
-        <label for="zoneA">Zone A</label>
-        <input id="zoneA" type="text" placeholder="Front / Primary" />
-      </div>
-      <div class="field">
-        <label for="zoneB">Zone B</label>
-        <input id="zoneB" type="text" placeholder="Side / Secondary" />
-      </div>
-      <div class="field">
-        <label for="zoneC">Zone C</label>
-        <input id="zoneC" type="text" placeholder="Rear / Service Area" />
-      </div>
+      <div class="field"><label>Zone A</label><input id="zoneA" type="text" /></div>
+      <div class="field"><label>Zone B</label><input id="zoneB" type="text" /></div>
+      <div class="field"><label>Zone C</label><input id="zoneC" type="text" /></div>
     </div>
   </section>
 
@@ -142,15 +124,8 @@
   <section class="card">
     <h2>Sign Measurements</h2>
     <div class="grid">
-      <div class="field">
-        <label for="widthIn">Width (in) *</label>
-        <input id="widthIn" type="number" inputmode="decimal" min="0" step="0.01" required />
-      </div>
-
-      <div class="field">
-        <label for="heightIn">Height (in) *</label>
-        <input id="heightIn" type="number" inputmode="decimal" min="0" step="0.01" required />
-      </div>
+      <div class="field"><label>Width (in) *</label><input id="widthIn" type="number" required /></div>
+      <div class="field"><label>Height (in) *</label><input id="heightIn" type="number" required /></div>
     </div>
   </section>
 
@@ -158,25 +133,16 @@
   <section class="card">
     <h2>Photos (3 required)</h2>
     <div class="photo-grid">
-      <div class="photo-field">
-        <label for="photo1">Photo 1 — Wide context *</label>
-        <input id="photo1" type="file" accept="image/*" capture="environment" />
-      </div>
-      <div class="photo-field">
-        <label for="photo2">Photo 2 — Straight-on *</label>
-        <input id="photo2" type="file" accept="image/*" capture="environment" />
-      </div>
-      <div class="photo-field">
-        <label for="photo3">Photo 3 — Mount detail *</label>
-        <input id="photo3" type="file" accept="image/*" capture="environment" />
-      </div>
+      <div class="photo-field"><label>Wide *</label><input id="photo1" type="file" accept="image/*" capture="environment" /></div>
+      <div class="photo-field"><label>Straight-on *</label><input id="photo2" type="file" accept="image/*" capture="environment" /></div>
+      <div class="photo-field"><label>Mount detail *</label><input id="photo3" type="file" accept="image/*" capture="environment" /></div>
     </div>
   </section>
 
   <!-- NOTES -->
   <section class="card">
     <h2>Notes / Risks</h2>
-    <textarea id="notes" rows="4" placeholder="Access issues, obstructions, safety, visibility, client notes"></textarea>
+    <textarea id="notes" rows="4"></textarea>
   </section>
 
   <!-- ACTIONS -->
@@ -185,6 +151,7 @@
 
     <div class="actions">
       <button id="btnSave" type="button">Save</button>
+      <button id="btnEmail" type="button">Email Summary</button>
       <button id="btnDownload" type="button">Download JSON</button>
       <button id="btnClear" type="button">Clear</button>
     </div>
