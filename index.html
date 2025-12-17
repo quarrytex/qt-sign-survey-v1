@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign Site Survey (V1)</title>
+  <meta name="description" content="Quarry Tex - Sign Site Survey (V1) mobile capture form." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand__title">Sign Site Survey</div>
+      <div class="brand__subtitle">V1 Field Capture</div>
+    </div>
+    <div class="status" id="saveStatus" aria-live="polite">Not saved</div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h1>Survey</h1>
+      <p class="muted">Fast field capture for pricing + install planning. Designed for iPhone.</p>
+
+      <div class="grid">
+        <div class="field">
+          <label for="siteName">Site / Business Name <span class="req">*</span></label>
+          <input id="siteName" name="siteName" type="text" autocomplete="organization" placeholder="e.g., Pro Carpet Care" required />
+        </div>
+
+        <div class="field">
+          <label for="address">Address <span class="req">*</span></label>
+          <input id="address" name="address" type="text" autocomplete="street-address" placeholder="Street, City, NJ" required />
+        </div>
+
+        <div class="field">
+          <label for="surveyDate">Date / Time</label>
+          <input id="surveyDate" name="surveyDate" type="text" readonly />
+        </div>
+
+        <div class="field">
+          <label for="surveyor">Surveyor <span class="req">*</span></label>
+          <input id="surveyor" name="surveyor" type="text" autocomplete="name" placeholder="Your name" required />
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Sign Type <span class="req">*</span></h2>
+      <div class="chips" role="radiogroup" aria-label="Sign type">
+        <label class="chip">
+          <input type="radio" name="signType" value="Ground" />
+          <span>Ground</span>
+        </label>
+        <label class="chip">
+          <input type="radio" name="signType" value="Wall" />
+          <span>Wall</span>
+        </label>
+        <label class="chip">
+          <input type="radio" name="signType" value="Window/Interior" />
+          <span>Window / Interior</span>
+        </label>
+        <label class="chip">
+          <input type="radio" name="signType" value="Other" />
+          <span>Other</span>
+        </label>
+      </div>
+
+      <div class="field mt-12" id="otherTypeWrap" hidden>
+        <label for="otherType">If “Other”, describe</label>
+        <input id="otherType" type="text" placeholder="Describe sign type" />
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Core Measurements <span class="req">*</span></h2>
+      <p class="muted">Use inches unless stated. Photograph with tape visible when possible.</p>
+
+      <div class="grid">
+        <div class="field">
+          <label for="widthIn">Width (in) <span class="req">*</span></label>
+          <input id="widthIn" type="number" inputmode="decimal" min="0" step="0.01" placeholder="e.g., 72" required />
+        </div>
+        <div class="field">
+          <label for="heightIn">Height (in) <span class="req">*</span></label>
+          <input id="heightIn" type="number" inputmode="decimal" min="0" step="0.01" placeholder="e.g., 24" required />
+        </div>
+      </div>
+
+      <div class="callout" id="groundBlock" hidden>
+        <h3>Ground Sign Measurements</h3>
+        <div class="grid">
+          <div class="field">
+            <label for="bottomToGradeIn">Bottom to Grade (in) <span class="req">*</span></label>
+            <input id="bottomToGradeIn" type="number" inputmode="decimal" min="0" step="0.01" placeholder="e.g., 18" />
+          </div>
+          <div class="field">
+            <label for="postSpacingIn">Post Spacing (in) <span class="req">*</span></label>
+            <input id="postSpacingIn" type="number" inputmode="decimal" min="0" step="0.01" placeholder="e.g., 60" />
+          </div>
+        </div>
+      </div>
+
+      <div class="callout" id="wallBlock" hidden>
+        <h3>Wall Sign Measurements</h3>
+        <div class="grid">
+          <div class="field">
+            <label for="mountHeightFt">Mount Height from Ground (ft) <span class="req">*</span></label>
+            <input id="mountHeightFt" type="number" inputmode="decimal" min="0" step="0.01" placeholder="e.g., 10" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Mount & Surface <span class="req">*</span></h2>
+      <div class="grid">
+        <div class="field">
+          <label for="mounting">Mounting <span class="req">*</span></label>
+          <select id="mounting" required>
+            <option value="" selected disabled>Select</option>
+            <option>Posts</option>
+            <option>Wall</option>
+            <option>Existing structure</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="surface">Surface <span class="req">*</span></label>
+          <select id="surface" required>
+            <option value="" selected disabled>Select</option>
+            <option>Concrete</option>
+            <option>Masonry</option>
+            <option>Siding</option>
+            <option>Drywall</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field mt-12" id="surfaceOtherWrap" hidden>
+        <label for="surfaceOther">If “Other”, describe surface</label>
+        <input id="surfaceOther" type="text" placeholder="e.g., EIFS, metal panel, stucco" />
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Photos (minimum 3) <span class="req">*</span></h2>
+      <p class="muted">Use “Take Photo” to capture from iPhone camera. Photos stay on device unless you upload elsewhere.</p>
+
+      <div class="photo-grid">
+        <div class="photo-field">
+          <label>1) Wide context <span class="req">*</span></label>
+          <input class="photo" id="photoWide" type="file" accept="image/*" capture="environment" />
+          <div class="thumb" id="thumbWide" aria-hidden="true"></div>
+        </div>
+
+        <div class="photo-field">
+          <label>2) Straight-on location <span class="req">*</span></label>
+          <input class="photo" id="photoStraight" type="file" accept="image/*" capture="environment" />
+          <div class="thumb" id="thumbStraight" aria-hidden="true"></div>
+        </div>
+
+        <div class="photo-field">
+          <label>3) Mount / surface detail <span class="req">*</span></label>
+          <input class="photo" id="photoMount" type="file" accept="image/*" capture="environment" />
+          <div class="thumb" id="thumbMount" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <div class="note tiny muted">
+        Tip: include a tape-measure photo when possible (especially for existing signs).
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Electrical</h2>
+      <div class="grid">
+        <div class="field">
+          <label>Illuminated?</label>
+          <div class="toggle-row">
+            <label class="toggle">
+              <input type="radio" name="illuminated" value="Yes" />
+              <span>Yes</span>
+            </label>
+            <label class="toggle">
+              <input type="radio" name="illuminated" value="No" checked />
+              <span>No</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="field" id="powerVisibleWrap" hidden>
+          <label>Power visible?</label>
+          <div class="toggle-row">
+            <label class="toggle">
+              <input type="radio" name="powerVisible" value="Yes" />
+              <span>Yes</span>
+            </label>
+            <label class="toggle">
+              <input type="radio" name="powerVisible" value="No" checked />
+              <span>No</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Notes / Risks</h2>
+      <div class="field">
+        <label for="notes">Notes</label>
+        <textarea id="notes" rows="5" placeholder="Obstructions, access issues, safety, code concerns, client preferences, etc."></textarea>
+      </div>
+    </section>
+
+    <section class="card actions">
+      <div class="errors" id="errors" hidden></div>
+
+      <div class="btn-row">
+        <button class="btn secondary" id="btnClear" type="button">Clear</button>
+        <button class="btn secondary" id="btnDownload" type="button">Download JSON</button>
+        <button class="btn" id="btnSave" type="button">Save Survey</button>
+      </div>
+
+      <details class="mt-12">
+        <summary>View captured summary</summary>
+        <pre class="summary" id="summary"></pre>
+        <div class="btn-row mt-12">
+          <button class="btn secondary" id="btnCopy" type="button">Copy Summary</button>
+        </div>
+      </details>
+
+      <p class="tiny muted mt-12">
+        V1 stores the survey locally on this device. For centralized storage, we can add “Submit to Email / GHL” in V2.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="tiny muted">Quarry Tex — Systems Builds — Sign Site Survey (V1)</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
