@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign Site Survey — V1.1</title>
+  <meta name="description" content="Quarry Tex — Sign Site Survey (V1.1) Industry-Standard Plus" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand__title">Sign Site Survey</div>
+      <div class="brand__subtitle">V1.1 — Industry-Standard Plus</div>
+    </div>
+    <div class="status" id="saveStatus">Not saved</div>
+  </header>
+
+  <main class="container">
+    <!-- SITE INFO -->
+    <section class="card">
+      <h1>Survey</h1>
+      <p class="muted">Fast field capture for pricing and install planning.</p>
+
+      <div class="grid">
+        <div class="field">
+          <label for="siteName">Site / Business Name <span class="req">*</span></label>
+          <input id="siteName" type="text" placeholder="e.g., Pro Carpet Care" required />
+        </div>
+
+        <div class="field">
+          <label for="address">Address <span class="req">*</span></label>
+          <input id="address" type="text" placeholder="Street, City, State" required />
+        </div>
+
+        <div class="field">
+          <label for="contactName">On-site Contact Name <span class="req">*</span></label>
+          <input id="contactName" type="text" placeholder="First & Last Name" required />
+        </div>
+
+        <div class="field">
+          <label for="contactPhone">Contact Phone (optional)</label>
+          <input id="contactPhone" type="tel" inputmode="tel" placeholder="e.g., 908-555-1234" />
+        </div>
+
+        <div class="field">
+          <label for="surveyDate">Date / Time</label>
+          <input id="surveyDate" type="text" readonly />
+        </div>
+
+        <div class="field">
+          <label for="surveyor">Surveyor <span class="req">*</span></label>
+          <input id="surveyor" type="text" placeholder="Your name" required />
+        </div>
+      </div>
+    </section>
+
+    <!-- SIGN TYPE -->
+    <section class="card">
+      <h2>Sign Type <span class="req">*</span></h2>
+      <div class="chips">
+        <label class="chip"><input type="radio" name="signType" value="Ground" /> <span>Ground</span></label>
+        <label class="chip"><input type="radio" name="signType" value="Wall" /> <span>Wall</span></label>
+        <label class="chip"><input type="radio" name="signType" value="Window/Interior" /> <span>Window / Interior</span></label>
+        <label class="chip"><input type="radio" name="signType" value="Other" /> <span>Other</span></label>
+      </div>
+
+      <div class="field mt-12" id="otherTypeWrap" hidden>
+        <label for="otherType">If “Other”, describe</label>
+        <input id="otherType" type="text" />
+      </div>
+    </section>
+
+    <!-- MEASUREMENTS -->
+    <section class="card">
+      <h2>Core Measurements <span class="req">*</span></h2>
+      <div class="grid">
+        <div class="field">
+          <label for="widthIn">Width (in) <span class="req">*</span></label>
+          <input id="widthIn" type="number" inputmode="decimal" min="0" step="0.01" required />
+        </div>
+        <div class="field">
+          <label for="heightIn">Height (in) <span class="req">*</span></label>
+          <input id="heightIn" type="number" inputmode="decimal" min="0" step="0.01" required />
+        </div>
+      </div>
+
+      <div class="callout" id="groundBlock" hidden>
+        <h3>Ground Sign</h3>
+        <div class="grid">
+          <div class="field">
+            <label for="bottomToGradeIn">Bottom to Grade (in) <span class="req">*</span></label>
+            <input id="bottomToGradeIn" type="number" inputmode="decimal" min="0" step="0.01" />
+          </div>
+          <div class="field">
+            <label for="postSpacingIn">Post Spacing (in) <span class="req">*</span></label>
+            <input id="postSpacingIn" type="number" inputmode="decimal" min="0" step="0.01" />
+          </div>
+        </div>
+      </div>
+
+      <div class="callout" id="wallBlock" hidden>
+        <h3>Wall Sign</h3>
+        <div class="grid">
+          <div class="field">
+            <label for="mountHeightFt">Mount Height from Ground (ft) <span class="req">*</span></label>
+            <input id="mountHeightFt" type="number" inputmode="decimal" min="0" step="0.01" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOUNT & SURFACE -->
+    <section class="card">
+      <h2>Mount & Surface <span class="req">*</span></h2>
+      <div class="grid">
+        <div class="field">
+          <label for="mounting">Mounting</label>
+          <select id="mounting" required>
+            <option value="" disabled selected>Select</option>
+            <option>Posts</option>
+            <option>Wall</option>
+            <option>Existing structure</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="surface">Surface</label>
+          <select id="surface" required>
+            <option value="" disabled selected>Select</option>
+            <option>Concrete</option>
+            <option>Masonry</option>
+            <option>Siding</option>
+            <option>Drywall</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field mt-12" id="surfaceOtherWrap" hidden>
+        <label for="surfaceOther">If “Other”, describe</label>
+        <input id="surfaceOther" type="text" />
+      </div>
+    </section>
+
+    <!-- PHOTOS -->
+    <section class="card">
+      <h2>Photos (minimum 3) <span class="req">*</span></h2>
+      <div class="photo-grid">
+        <div class="photo-field">
+          <label>Wide context</label>
+          <input id="photoWide" class="photo" type="file" accept="image/*" capture="environment" />
+          <div class="thumb" id="thumbWide"></div>
+        </div>
+        <div class="photo-field">
+          <label>Straight-on location</label>
+          <input id="photoStraight" class="photo" type="file" accept="image/*" capture="environment" />
+          <div class="thumb" id="thumbStraight"></div>
+        </div>
+        <div class="photo-field">
+          <label>Mount / surface detail</label>
+          <input id="photoMount" class="photo" type="file" accept="image/*" capture="environment" />
+          <div class="thumb" id="thumbMount"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ELECTRICAL -->
+    <section class="card">
+      <h2>Electrical</h2>
+      <div class="toggle-row">
+        <label class="toggle"><input type="radio" name="illuminated" value="Yes" /> <span>Illuminated</span></label>
+        <label class="toggle"><input type="radio" name="illuminated" value="No" checked /> <span>Non-illuminated</span></label>
+      </div>
+
+      <div class="toggle-row mt-12" id="powerVisibleWrap" hidden>
+        <label class="toggle"><input type="radio" name="powerVisible" value="Yes" /> <span>Power visible</span></label>
+        <label class="toggle"><input type="radio" name="powerVisible" value="No" checked /> <span>No power visible</span></label>
+      </div>
+    </section>
+
+    <!-- NOTES -->
+    <section class="card">
+      <h2>Notes / Risks</h2>
+      <textarea id="notes" rows="4" placeholder="Access issues, obstructions, code concerns, client preferences"></textarea>
+    </section>
+
+    <!-- ACTIONS -->
+    <section class="card actions">
+      <div class="errors" id="errors" hidden></div>
+      <div class="btn-row">
+        <button class="btn secondary" id="btnClear" type="button">Clear</button>
+        <button class="btn secondary" id="btnDownload" type="button">Download JSON</button>
+        <button class="btn" id="btnSave" type="button">Save Survey</button>
+      </div>
+
+      <details class="mt-12">
+        <summary>View summary</summary>
+        <pre class="summary" id="summary"></pre>
+      </details>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="tiny muted">Quarry Tex — Systems Builds</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
